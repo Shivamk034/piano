@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto:wght@300&display=swap');
+
+/*|| CSS RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*|| MAIN */
+
+:root {
+    --primary-color: rgb(55, 55, 55);
+    --secondary-color: rgb(110, 110, 110);
+    --KEYS-BG-color: rgb(48, 48, 48);
+    --KEY-color: rgba(33, 33, 33, 0.201);
+
+    --ACTIVE-COLOR: rgb(0, 81, 255);
+    --C-color: hsl(355, 76%, 54%);
+    --D-color: hsl(24, 98%, 51%);
+    --E-color: hsl(59, 100%, 50%);
+
+    --F-color: hsl(147, 62%, 46%);
+    --G-color: hsl(176, 52%, 46%);
+    --A-color: hsl(208, 79%, 58%);
+    --B-color: hsl(305, 62%, 46%);
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    background-color: #000;
+    overflow: hidden;
+}
+
+#piano {
+    background-color: var(--primary-color);
+    border-radius: 10px;
+
+    position: relative;
+}
+
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+}
+
+.left_container {
+    display: flex;
+    column-gap: 1rem;
+}
+
+.left_container .record_btn {
+    position: relative;
+    background-color: var(--secondary-color);
+}
+
+.left_container .record_btn::after {
+    display: block;
+    content: "";
+
+    height: 0.6em;
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+    background-color: rgb(0, 255, 4);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.btn_container {
+    display: flex;
+    column-gap: 0.5em;
+    background-color: var(--secondary-color);
+    border-radius: 50px;
+
+}
+
+.left_container button {
+    color: #e1e1e1;
+    background-color: transparent;
+    cursor: pointer;
+    height: 2.5em;
+    aspect-ratio: 1;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.title {
+    color: var(--secondary-color);
+    display: block;
+    font-size: 5em;
+    /* margin: 1rem; */
+}
+
+.keys {
+    display: flex;
+    background-color: var(--KEYS-BG-color);
+    font-size: 2rem;
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+}
+
+.key {
+    background-color:var(--KEY-color);
+
+    width: 2em;
+    height: 10em;
+    border: 0.14em solid;
+    position: relative;
+    overflow: visible;
+
+    border-top: none;
+    border-bottom: none;
+
+    /* border-radius: 0px 0px 10px 10px; */
+}
+
+.key:first-child {
+    border-radius: 0px 0px 0px 10px;
+    border-left: none;
+}
+
+.key:last-child {
+    border-radius: 0px 0px 10px 0px;
+    border-right: none;
+}
+
+.key .sharp {
+    background: var(--secondary-color);
+    border: 0.2em solid #000;
+    border-top: none;
+    display: block;
+    height: 60%;
+    width: 1.5em;
+    z-index: 1;
+
+    position: absolute;
+    right: -0.85em;
+
+    border-radius: 0px 0px 10px 10px;
+
+}
+
+.C,
+.C>.sharp {
+    --ACTIVE-COLOR: var(--C-color);
+}
+
+.D,
+.D>.sharp {
+    --ACTIVE-COLOR: var(--D-color);
+}
+
+.E,
+.E>.sharp {
+    --ACTIVE-COLOR: var(--E-color);
+}
+
+.F,
+.F>.sharp {
+    --ACTIVE-COLOR: var(--F-color);
+}
+
+.G,
+.G>.sharp {
+    --ACTIVE-COLOR: var(--G-color);
+}
+
+.A,
+.A>.sharp {
+    --ACTIVE-COLOR: var(--A-color);
+}
+
+.B,
+.B>.sharp {
+    --ACTIVE-COLOR: var(--B-color);
+}
+
+.key.active,
+.key>.sharp.active {
+    background-color: var(--ACTIVE-COLOR);
+    box-shadow: 0 0 20px -5px var(--ACTIVE-COLOR);
+}
+
+@media screen and (max-width:1000px) {
+    #piano {
+        border-radius: 5px;
+    }
+
+    .header {
+        font-size: 1vw;
+        padding: 2vw 4vw;
+    }
+
+    .keys {
+        font-size: 3vw;
+    }
+}
